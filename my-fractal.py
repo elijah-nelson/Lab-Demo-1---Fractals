@@ -12,7 +12,7 @@ print("PyTorch Version:", torch.__version__)
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print("Using device:", device)
 
-num_ks = 50 # number of ks to test
+num_ks = 1000 # number of ks to test
 num_x0s = 100
 n = 500      # number of iterations
 
@@ -33,5 +33,7 @@ for _ in range(n):
 
 import matplotlib.pyplot as plt
 
-plt.scatter(K.numpy(), X.numpy(), s=plt.rcParams['lines.markersize'] / 8, c=K.numpy())
+plt.scatter(K.numpy(), X.numpy(), s=plt.rcParams['lines.markersize'] / 16, c=K.numpy())
+plt.xlabel('k')
+plt.ylabel(f'x after {n} iterations')
 plt.show()
